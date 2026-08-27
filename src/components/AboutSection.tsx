@@ -1,8 +1,8 @@
 import AnimatedText from "./AnimatedText";
 
 type Props = {
-  eyebrow: string;
-  title: string;
+  eyebrow?: string;
+  title?: string;
   description?: string;
 };
 
