@@ -1,11 +1,12 @@
+
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, Stethoscope } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 type Props = {
   mobileOpen: boolean;
-  setMobileOpen: (value: boolean) => void;
+  setMobileOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 const sectionLinks = [
@@ -96,9 +97,6 @@ export default function Navbar({
 
   /*
    * SCROLL TO HOME SECTION
-   *
-   * This also works when the user is currently
-   * on /about.
    */
   const handleNavigation = (id: string) => {
     closeMenu();
@@ -197,10 +195,7 @@ export default function Navbar({
       {/* HEADER INNER */}
       <div className="mx-auto flex h-[72px] max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-10">
 
-        {/* =====================================================
-            LOGO
-        ====================================================== */}
-
+        {/* LOGO */}
         <motion.button
           type="button"
           onClick={goHome}
@@ -236,14 +231,10 @@ export default function Navbar({
           </span>
         </motion.button>
 
-        {/* =====================================================
-            DESKTOP NAVIGATION
-        ====================================================== */}
-
+        {/* DESKTOP NAVIGATION */}
         <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
 
           {/* ABOUT */}
-
           <motion.div
             initial={{
               opacity: 0,
@@ -279,7 +270,6 @@ export default function Navbar({
           </motion.div>
 
           {/* HOME SECTION LINKS */}
-
           {sectionLinks.map((item, index) => (
             <motion.button
               key={item.id}
@@ -306,7 +296,6 @@ export default function Navbar({
           ))}
 
           {/* BOOK APPOINTMENT */}
-
           <motion.button
             type="button"
             onClick={handleAppointment}
@@ -323,10 +312,7 @@ export default function Navbar({
           </motion.button>
         </nav>
 
-        {/* =====================================================
-            MOBILE MENU BUTTON
-        ====================================================== */}
-
+        {/* MOBILE MENU BUTTON */}
         <motion.button
           type="button"
           whileTap={{
@@ -341,10 +327,7 @@ export default function Navbar({
           }
           aria-expanded={mobileOpen}
         >
-          <AnimatePresence
-            mode="wait"
-            initial={false}
-          >
+          <AnimatePresence mode="wait" initial={false}>
             {mobileOpen ? (
               <motion.div
                 key="close"
@@ -398,10 +381,7 @@ export default function Navbar({
         </motion.button>
       </div>
 
-      {/* =====================================================
-          MOBILE MENU
-      ====================================================== */}
-
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -426,7 +406,6 @@ export default function Navbar({
             <nav className="max-h-[calc(100vh-72px)] overflow-y-auto px-5 py-3 sm:px-8">
 
               {/* MOBILE ABOUT */}
-
               <motion.div
                 initial={{
                   opacity: 0,
@@ -455,7 +434,6 @@ export default function Navbar({
               </motion.div>
 
               {/* MOBILE SECTION LINKS */}
-
               {sectionLinks.map((item, index) => (
                 <motion.button
                   key={item.id}
@@ -481,7 +459,6 @@ export default function Navbar({
               ))}
 
               {/* MOBILE APPOINTMENT */}
-
               <motion.button
                 type="button"
                 onClick={handleAppointment}

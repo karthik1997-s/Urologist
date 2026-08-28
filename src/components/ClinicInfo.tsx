@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+
+import { motion, type Variants } from "motion/react";
 import {
   HeartPulse,
   ShieldCheck,
@@ -20,7 +21,7 @@ const items = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -29,7 +30,7 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: {
     opacity: 0,
     x: 50,
@@ -52,10 +53,7 @@ export default function ClinicInfo() {
     >
       <div className="container-wide grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
 
-        {/* =====================================================
-            LEFT CONTENT
-        ====================================================== */}
-
+        {/* LEFT CONTENT */}
         <motion.div
           initial={{
             opacity: 0,
@@ -75,7 +73,6 @@ export default function ClinicInfo() {
           }}
         >
           {/* SMALL LABEL */}
-
           <motion.p
             initial={{
               opacity: 0,
@@ -97,7 +94,6 @@ export default function ClinicInfo() {
           </motion.p>
 
           {/* HEADING */}
-
           <motion.h2
             initial={{
               opacity: 0,
@@ -122,7 +118,6 @@ export default function ClinicInfo() {
           </motion.h2>
 
           {/* DESCRIPTION */}
-
           <motion.p
             initial={{
               opacity: 0,
@@ -149,10 +144,7 @@ export default function ClinicInfo() {
           </motion.p>
         </motion.div>
 
-        {/* =====================================================
-            RIGHT CARDS
-        ====================================================== */}
-
+        {/* RIGHT CARDS */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -179,9 +171,7 @@ export default function ClinicInfo() {
                 }}
                 className="group flex cursor-default items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm font-semibold transition-colors duration-300 hover:border-teal-400/30 hover:bg-white/10"
               >
-
                 {/* ICON */}
-
                 <motion.span
                   whileHover={{
                     rotate: 8,
@@ -196,7 +186,6 @@ export default function ClinicInfo() {
                 </motion.span>
 
                 {/* TEXT */}
-
                 <motion.span
                   initial={{
                     opacity: 0,
@@ -217,7 +206,6 @@ export default function ClinicInfo() {
                 >
                   {item.label}
                 </motion.span>
-
               </motion.div>
             );
           })}
