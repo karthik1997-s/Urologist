@@ -12,7 +12,7 @@ export default function SectionHeading({
   description,
 }: Props) {
   return (
-    <div>
+    <div >
       <AnimatedText>
         <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700 sm:text-xs">
           {eyebrow}
