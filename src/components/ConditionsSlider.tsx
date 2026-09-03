@@ -24,13 +24,13 @@ const itemVariants = {
 
 export default function ConditionsSlider() {
   const settings = {
-    dots: false,
+    dots: true,
     arrows: false,
     infinite: true,
     speed: 700,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 4500,
     pauseOnHover: true,
     swipeToSlide: true,
