@@ -1,6 +1,6 @@
 
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, X, Stethoscope } from "lucide-react";
+import { Menu, X, Activity } from "lucide-react";
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -208,7 +208,7 @@ export default function Navbar({
           className="flex items-center gap-2 text-left sm:gap-3"
           aria-label="Go to home"
         >
-          <motion.span
+          {/* <motion.span
             whileHover={{
               rotate: 5,
             }}
@@ -217,12 +217,12 @@ export default function Navbar({
             }}
             className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-teal-700 text-white shadow-sm sm:h-10 sm:w-10"
           >
-            <Stethoscope size={19} />
-          </motion.span>
+            <Activity size={19} />
+          </motion.span> */}
 
           <span>
             <span className="block font-display text-[13px] font-bold leading-tight text-slate-900 sm:text-base">
-              Dr. Krishnakanth AVB
+              Dr. Suryaram Aravind
             </span>
 
             <span className="mt-0.5 block text-[7px] font-semibold uppercase tracking-[0.12em] text-teal-700 sm:text-[10px] sm:tracking-[0.18em]">

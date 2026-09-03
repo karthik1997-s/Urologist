@@ -7,6 +7,7 @@ import {
   Users,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { IMAGES } from "../Utills/ImageConstant";
 const highlights = [
   {
     icon: Stethoscope,
@@ -80,7 +81,7 @@ export default function AboutPage() {
             }}
           >
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-teal-700">
-              About Dr. Krishnakanth
+              About Dr. Suryaram Aravind
             </p>
 
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-slate-900 sm:text-5xl lg:text-6xl">
@@ -132,10 +133,11 @@ export default function AboutPage() {
           >
             <div className="overflow-hidden rounded-[2rem] bg-white p-3 shadow-xl">
               <img
-                src="/doctor-about.jpg"
-                alt="Dr. Krishnakanth AVB"
+                src={IMAGES.DoctorImage} 
+                alt="Dr. Suryaram Aravind"
                 className="h-[420px] w-full rounded-[1.5rem] object-cover object-top sm:h-[500px]"
               />
+              
             </div>
           </motion.div>
         </div>
@@ -171,7 +173,7 @@ export default function AboutPage() {
 
             <div className="mt-7 max-w-4xl space-y-5 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
               <p>
-                Dr. Krishnakanth AVB is a Consultant Urologist focused on
+                Dr. Suryaram Aravind is a Consultant Urologist focused on
                 delivering comprehensive and personalised care for patients
                 with urological conditions.
               </p>

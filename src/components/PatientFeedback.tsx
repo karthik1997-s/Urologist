@@ -8,7 +8,7 @@ export default function PatientFeedback() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading eyebrow="Patient Feedback" title="What patients say on Google" />
           <a
-            href="https://www.google.com/search?q=Dr+Krishnakanth+AVB+Urologist+Madurai"
+            href="https://www.google.com/search?q=Dr+Suryaram+Aravind+Usha+Medical+Centre+Urologist+Karaikudi"
             target="_blank"
             rel="noreferrer"
             className="inline-flex w-fit items-center gap-3 rounded-full bg-[#0b1b33] px-6 py-4 text-sm font-semibold text-white transition duration-300 hover:-translate-y-1 hover:shadow-lg"
@@ -33,7 +33,7 @@ export default function PatientFeedback() {
                 {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={22} fill="currentColor" />)}
               </div>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600">
-                Verified Google reviews from patients can appear here in a scrolling feed as they are posted. If you have consulted Dr. Krishnakanth, your honest review helps other patients choose with confidence.
+                Verified Google reviews from patients can appear here in a scrolling feed as they are posted. If you have consulted Dr. Suryaram Aravind, your honest review helps other patients choose with confidence.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3 text-sm font-semibold text-ink">
                 <span className="rounded-full bg-teal-50 px-4 py-2 text-teal-700">Google Reviews</span>

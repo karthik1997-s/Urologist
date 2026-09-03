@@ -1,8 +1,8 @@
 import { ArrowRight, CalendarDays, Mail, MapPin, Phone } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
-const phone = "+919360510074";
-const email = "krishnakanth002@gmail.com";
+const phone = "+9280701585";
+const email = "rkckaraikudi1@gmail.com";
 
 export default function CTASection() {
   return (
@@ -13,7 +13,7 @@ export default function CTASection() {
           <div className="mt-8 space-y-4">
             <a href={`tel:${phone}`} className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 hover:border-teal-200"><Phone className="text-teal-700"/><span><span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Call</span><span className="font-semibold text-ink">+91 93605 10074</span></span></a>
             <a href={`mailto:${email}`} className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 hover:border-teal-200"><Mail className="text-teal-700"/><span><span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Email</span><span className="font-semibold text-ink">{email}</span></span></a>
-            <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5"><MapPin className="mt-1 text-teal-700"/><span><span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Hospital</span><span className="font-semibold leading-6 text-ink">Preethi Multispeciality Hospital, 50 Melur Main Road, Uthangudi, Madurai</span></span></div>
+            <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5"><MapPin className="mt-1 text-teal-700"/><span><span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Location</span><span className="font-semibold leading-6 text-ink">Sri Usha Medical Centre , College Road , Karaikudi</span></span></div>
           </div>
         </div>
 

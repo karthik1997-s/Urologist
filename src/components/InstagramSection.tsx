@@ -11,10 +11,10 @@ export default function InstagramSection() {
             <h2 className="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-5xl">A practice built around continuous learning.</h2>
             <p className="mt-5 max-w-2xl leading-8 text-slate-300">Explore educational resources and evidence-focused updates designed to support better conversations between patients and their urologist.</p>
           </div>
-          <a href="https://www.instagram.com/uro_bytes/" target="_blank" rel="noreferrer" className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10">
+          {/* <a href="https://www.instagram.com/uro_bytes/" target="_blank" rel="noreferrer" className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10">
             <span className="grid h-12 w-12 place-items-center rounded-xl bg-teal-600"><Instagram size={22}/></span>
             <span><span className="block font-semibold">Follow @uro_bytes</span><span className="text-sm text-slate-400">Patient education & urology updates</span></span>
-          </a>
+          </a> */}
         </div>
       </div>
     </section>

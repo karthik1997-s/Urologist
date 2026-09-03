@@ -1,4 +1,4 @@
-# krishnakanth-urology
+# Suryaram Aravind-urology
 
 Vite + React + TypeScript + Tailwind CSS + Lucide React + react-slick.
 
@@ -39,7 +39,7 @@ For the best long-term setup, Node.js 20.19+ LTS or newer is recommended.
 ## Folder structure
 
 ```text
-krishnakanth-urology/
+Suryaram Aravind-urology/
 ├── package.json
 ├── vite.config.ts
 ├── tsconfig.json

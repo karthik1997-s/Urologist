@@ -8,6 +8,7 @@ import {
 
 import App from "./App";
 import AboutPage from "./pages/AboutPage";
+import ConditionPage from "./pages/ConditionPage";
 
 import "./index.css";
 
@@ -25,6 +26,11 @@ ReactDOM.createRoot(
         <Route
           path="/about"
           element={<AboutPage />}
+        />
+
+        <Route
+          path="/conditions/:slug"
+          element={<ConditionPage />}
         />
       </Routes>
     </BrowserRouter>
