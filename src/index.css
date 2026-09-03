@@ -168,3 +168,48 @@ body { margin: 0; background: #fbfcfa; color: #12312f; font-family: Inter, sans-
 .ticker-slider:hover .slick-track {
   animation-play-state: paused;
 }
+/* Conditions slider */
+
+.conditions-slider .slick-list {
+  overflow: hidden;
+  margin: 0 -12px;
+}
+
+.conditions-slider .slick-track {
+  display: flex;
+  align-items: stretch;
+}
+
+.conditions-slider .slick-slide {
+  height: auto;
+}
+
+.conditions-slider .slick-slide > div {
+  height: 100%;
+}
+
+/* Dots */
+
+.conditions-slider .slick-dots {
+  bottom: -42px;
+}
+
+.conditions-slider .slick-dots li button:before {
+  color: #8eb6a8;
+  opacity: 0.35;
+  font-size: 8px;
+}
+
+.conditions-slider .slick-dots li.slick-active button:before {
+  color: #5f8f80;
+  opacity: 1;
+}
+
+/* Smooth dot transition */
+
+.conditions-slider .slick-dots li,
+.conditions-slider .slick-dots li button,
+.conditions-slider .slick-dots li button:before {
+  transition: all 0.3s ease;
+}
+
