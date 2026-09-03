@@ -142,3 +142,29 @@ body { margin: 0; background: #fbfcfa; color: #12312f; font-family: Inter, sans-
   .slick-prev { display: none !important; }
   .slick-next { display: none !important; }
 }
+.ticker-slider .slick-track {
+  display: flex;
+  align-items: center;
+}
+
+.ticker-slider .slick-slide {
+  height: auto;
+}
+
+.ticker-slider .slick-slide > div {
+  height: 100%;
+}
+
+.ticker-slider .slick-list {
+  overflow: hidden;
+}
+
+/* Smooth ticker */
+.ticker-slider .slick-track {
+  transition-timing-function: linear !important;
+}
+
+/* Hover pause */
+.ticker-slider:hover .slick-track {
+  animation-play-state: paused;
+}
