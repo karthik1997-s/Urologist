@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
-import { conditionBySlug } from "../data/conditions";
+import { conditionBySlug, getConditionImage } from "../data/conditions";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -13,6 +13,10 @@ export default function ConditionPage() {
   const { slug } = useParams();
   const condition = slug ? conditionBySlug[slug] : undefined;
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [slug]);
 
   if (!condition) {
     return (
@@ -22,7 +26,7 @@ export default function ConditionPage() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-teal-700">Condition</p>
             <h1 className="mt-4 font-display text-4xl font-semibold text-slate-900">Page not found</h1>
-            <Link to="/#conditions" className="mt-8 inline-flex rounded-full bg-teal-700 px-6 py-3 font-semibold text-white">Back to Conditions</Link>
+            <Link to="/conditions" className="mt-8 inline-flex rounded-full bg-teal-700 px-6 py-3 font-semibold text-white">Back to Conditions</Link>
           </div>
         </main>
         <Footer />
@@ -41,7 +45,7 @@ export default function ConditionPage() {
 
           <div className="mx-auto max-w-[1400px] px-5 py-7 sm:px-8 lg:px-10">
             <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease }}>
-              <Link to="/#conditions" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-teal-700">
+              <Link to="/conditions" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-teal-700">
                 <ArrowLeft size={16} /> All Conditions
               </Link>
             </motion.div>
@@ -63,9 +67,19 @@ export default function ConditionPage() {
                 </motion.p>
               </div>
 
-              <motion.div initial={{ opacity: 0, x: 45, scale: 0.97 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.85, delay: 0.2, ease }} className="rounded-[28px] border border-white/80 bg-white/75 p-7 shadow-xl shadow-teal-900/5 backdrop-blur">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">At a glance</p>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{condition.intro}</p>
+              <motion.div initial={{ opacity: 0, x: 45, scale: 0.97 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.85, delay: 0.2, ease }} className="overflow-hidden rounded-[28px] border border-white/80 bg-white shadow-xl shadow-teal-900/5">
+                <div className="relative h-56 overflow-hidden sm:h-64">
+                  <img
+                    src={getConditionImage(condition.slug)}
+                    alt={condition.title}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+                </div>
+                <div className="p-7">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">At a glance</p>
+                  <p className="mt-4 text-sm leading-7 text-slate-600">{condition.intro}</p>
+                </div>
               </motion.div>
             </div>
           </div>

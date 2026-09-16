@@ -11,22 +11,6 @@ type Props = {
 
 const sectionLinks = [
   {
-    label: "Conditions",
-    id: "conditions",
-  },
-  {
-    label: "Treatments",
-    id: "treatments",
-  },
-  {
-    label: "Education",
-    id: "education",
-  },
-  {
-    label: "Research",
-    id: "research",
-  },
-  {
     label: "Feedback",
     id: "feedback",
   },
@@ -234,6 +218,42 @@ export default function Navbar({
         {/* DESKTOP NAVIGATION */}
         <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
 
+          {/* HOME */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: -10,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: 0.05,
+              duration: 0.4,
+            }}
+          >
+            <button
+              type="button"
+              onClick={goHome}
+              className={`group relative text-sm font-medium transition-colors duration-300 ${
+                location.pathname === "/"
+                  ? "text-teal-700"
+                  : "text-slate-600 hover:text-teal-700"
+              }`}
+            >
+              Home
+
+              <span
+                className={`absolute -bottom-2 left-0 h-[2px] w-full origin-left rounded-full bg-teal-700 transition-transform duration-300 ${
+                  location.pathname === "/"
+                    ? "scale-x-100"
+                    : "scale-x-0 group-hover:scale-x-100"
+                }`}
+              />
+            </button>
+          </motion.div>
+
           {/* ABOUT */}
           <motion.div
             initial={{
@@ -262,6 +282,147 @@ export default function Navbar({
               <span
                 className={`absolute -bottom-2 left-0 h-[2px] w-full origin-left rounded-full bg-teal-700 transition-transform duration-300 ${
                   location.pathname === "/about"
+                    ? "scale-x-100"
+                    : "scale-x-0 group-hover:scale-x-100"
+                }`}
+              />
+            </Link>
+          </motion.div>
+
+          {/* CONDITIONS */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: -10,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: 0.12,
+              duration: 0.4,
+            }}
+          >
+            <Link
+              to="/conditions"
+              className={`group relative text-sm font-medium transition-colors duration-300 ${
+                location.pathname.startsWith("/conditions")
+                  ? "text-teal-700"
+                  : "text-slate-600 hover:text-teal-700"
+              }`}
+            >
+              Conditions
+
+              <span
+                className={`absolute -bottom-2 left-0 h-[2px] w-full origin-left rounded-full bg-teal-700 transition-transform duration-300 ${
+                  location.pathname.startsWith("/conditions")
+                    ? "scale-x-100"
+                    : "scale-x-0 group-hover:scale-x-100"
+                }`}
+              />
+            </Link>
+          </motion.div>
+
+          {/* TREATMENTS */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: -10,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: 0.14,
+              duration: 0.4,
+            }}
+          >
+            <Link
+              to="/treatments"
+              className={`group relative text-sm font-medium transition-colors duration-300 ${
+                location.pathname.startsWith("/treatments")
+                  ? "text-teal-700"
+                  : "text-slate-600 hover:text-teal-700"
+              }`}
+            >
+              Treatments
+
+              <span
+                className={`absolute -bottom-2 left-0 h-[2px] w-full origin-left rounded-full bg-teal-700 transition-transform duration-300 ${
+                  location.pathname.startsWith("/treatments")
+                    ? "scale-x-100"
+                    : "scale-x-0 group-hover:scale-x-100"
+                }`}
+              />
+            </Link>
+          </motion.div>
+
+          {/* EDUCATION */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: -10,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: 0.16,
+              duration: 0.4,
+            }}
+          >
+            <Link
+              to="/education"
+              className={`group relative text-sm font-medium transition-colors duration-300 ${
+                location.pathname.startsWith("/education") ||
+                location.pathname.startsWith("/patient-education")
+                  ? "text-teal-700"
+                  : "text-slate-600 hover:text-teal-700"
+              }`}
+            >
+              Education
+
+              <span
+                className={`absolute -bottom-2 left-0 h-[2px] w-full origin-left rounded-full bg-teal-700 transition-transform duration-300 ${
+                  location.pathname.startsWith("/education") ||
+                  location.pathname.startsWith("/patient-education")
+                    ? "scale-x-100"
+                    : "scale-x-0 group-hover:scale-x-100"
+                }`}
+              />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: -10,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: 0.18,
+              duration: 0.4,
+            }}
+          >
+            <Link
+              to="/research"
+              className={`group relative text-sm font-medium transition-colors duration-300 ${
+                location.pathname.startsWith("/research")
+                  ? "text-teal-700"
+                  : "text-slate-600 hover:text-teal-700"
+              }`}
+            >
+              Research
+
+              <span
+                className={`absolute -bottom-2 left-0 h-[2px] w-full origin-left rounded-full bg-teal-700 transition-transform duration-300 ${
+                  location.pathname.startsWith("/research")
                     ? "scale-x-100"
                     : "scale-x-0 group-hover:scale-x-100"
                 }`}
@@ -405,6 +566,34 @@ export default function Navbar({
           >
             <nav className="max-h-[calc(100vh-72px)] overflow-y-auto px-5 py-3 sm:px-8">
 
+              {/* MOBILE HOME */}
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  x: -20,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                transition={{
+                  delay: 0.02,
+                  duration: 0.3,
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={goHome}
+                  className={`block w-full border-b border-slate-100 py-4 text-left text-[15px] font-semibold transition-colors duration-300 sm:text-base ${
+                    location.pathname === "/"
+                      ? "text-teal-700"
+                      : "text-slate-700 hover:text-teal-700"
+                  }`}
+                >
+                  Home
+                </button>
+              </motion.div>
+
               {/* MOBILE ABOUT */}
               <motion.div
                 initial={{
@@ -430,6 +619,118 @@ export default function Navbar({
                   }`}
                 >
                   About
+                </Link>
+              </motion.div>
+
+              {/* MOBILE CONDITIONS */}
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  x: -20,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                transition={{
+                  delay: 0.07,
+                  duration: 0.3,
+                }}
+              >
+                <Link
+                  to="/conditions"
+                  onClick={closeMenu}
+                  className={`block border-b border-slate-100 py-4 text-[15px] font-semibold transition-colors duration-300 sm:text-base ${
+                    location.pathname.startsWith("/conditions")
+                      ? "text-teal-700"
+                      : "text-slate-700 hover:text-teal-700"
+                  }`}
+                >
+                  Conditions
+                </Link>
+              </motion.div>
+
+              {/* MOBILE TREATMENTS */}
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  x: -20,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                transition={{
+                  delay: 0.09,
+                  duration: 0.3,
+                }}
+              >
+                <Link
+                  to="/treatments"
+                  onClick={closeMenu}
+                  className={`block border-b border-slate-100 py-4 text-[15px] font-semibold transition-colors duration-300 sm:text-base ${
+                    location.pathname.startsWith("/treatments")
+                      ? "text-teal-700"
+                      : "text-slate-700 hover:text-teal-700"
+                  }`}
+                >
+                  Treatments
+                </Link>
+              </motion.div>
+
+              {/* MOBILE EDUCATION */}
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  x: -20,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                transition={{
+                  delay: 0.11,
+                  duration: 0.3,
+                }}
+              >
+                <Link
+                  to="/education"
+                  onClick={closeMenu}
+                  className={`block border-b border-slate-100 py-4 text-[15px] font-semibold transition-colors duration-300 sm:text-base ${
+                    location.pathname.startsWith("/education") ||
+                    location.pathname.startsWith("/patient-education")
+                      ? "text-teal-700"
+                      : "text-slate-700 hover:text-teal-700"
+                  }`}
+                >
+                  Education
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  x: -20,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                transition={{
+                  delay: 0.12,
+                  duration: 0.3,
+                }}
+              >
+                <Link
+                  to="/research"
+                  onClick={closeMenu}
+                  className={`block border-b border-slate-100 py-4 text-[15px] font-semibold transition-colors duration-300 sm:text-base ${
+                    location.pathname.startsWith("/research")
+                      ? "text-teal-700"
+                      : "text-slate-700 hover:text-teal-700"
+                  }`}
+                >
+                  Research
                 </Link>
               </motion.div>
 

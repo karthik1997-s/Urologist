@@ -184,8 +184,38 @@ body { margin: 0; background: #fbfcfa; color: #12312f; font-family: Inter, sans-
   height: auto;
 }
 
-.conditions-slider .slick-slide > div {
+.conditions-slider .slick-slide > div,
+.conditions-slider .slick-slide > div > div {
   height: 100%;
+}
+
+.conditions-slider .slick-arrow,
+.conditions-slider .slick-dots {
+  display: none !important;
+}
+
+.education-slider .slick-list {
+  overflow: hidden;
+  margin: 0 -12px;
+}
+
+.education-slider .slick-track {
+  display: flex;
+  align-items: stretch;
+}
+
+.education-slider .slick-slide {
+  height: auto;
+}
+
+.education-slider .slick-slide > div,
+.education-slider .slick-slide > div > div {
+  height: 100%;
+}
+
+.education-slider .slick-arrow,
+.education-slider .slick-dots {
+  display: none !important;
 }
 
 /* Dots */
