@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
-import { getTreatmentImage, treatmentBySlug } from "../data/treatments";
+import { getTreatmentImage, isTreatmentDiagram, treatmentBySlug, treatmentImageClassName } from "../data/treatments";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -13,6 +13,7 @@ export default function TreatmentPage() {
   const { slug } = useParams();
   const treatment = slug ? treatmentBySlug[slug] : undefined;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const imageSrc = treatment ? getTreatmentImage(treatment.slug) : "";
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
@@ -68,13 +69,13 @@ export default function TreatmentPage() {
               </div>
 
               <motion.div initial={{ opacity: 0, x: 45, scale: 0.97 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.85, delay: 0.2, ease }} className="overflow-hidden rounded-[28px] border border-white/80 bg-white shadow-xl shadow-teal-900/5">
-                <div className="relative h-56 overflow-hidden sm:h-64">
+                <div className="relative h-56 overflow-hidden bg-slate-50 sm:h-64">
                   <img
-                    src={getTreatmentImage(treatment.slug)}
+                    src={imageSrc}
                     alt={treatment.title}
-                    className="h-full w-full object-cover"
+                    className={treatmentImageClassName(imageSrc)}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+                  <div className={`absolute inset-0 ${isTreatmentDiagram(imageSrc) ? "bg-gradient-to-t from-slate-900/10 via-transparent to-transparent" : "bg-gradient-to-t from-slate-900/40 to-transparent"}`} />
                 </div>
                 <div className="p-7">
                   <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">At a glance</p>

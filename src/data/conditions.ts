@@ -24,6 +24,8 @@ export const conditions: Condition[] = [
   { slug:"kidney-cancer", title:"Kidney Cancer", shortTitle:"Kidney Cancer", description:"A tumour of the kidney that is often found on a scan done for another reason.", intro:"Many kidney tumours are small when discovered. The aim of assessment is to confirm the nature of the mass and protect remaining kidney function where possible.", points:["May be found on incidental imaging","Flank discomfort in some people","Blood in the urine in some cases","A mass may be felt only when large"], sections:[{title:"Understanding kidney cancer",text:"Most solid kidney masses need evaluation to distinguish cancer from benign lesions. Size, location and the opposite kidney all influence the plan."},{title:"Evaluation",text:"Dedicated imaging is used to characterise the mass. Blood tests assess kidney function, and further staging is arranged when cancer is suspected."},{title:"Treatment",text:"Small tumours may be suitable for kidney-sparing surgery or close observation. Larger or more complex masses may need removal of the kidney."}] },
   { slug:"bladder-cancer", title:"Bladder Cancer", shortTitle:"Bladder Cancer", description:"A cancer of the bladder lining that often first appears as painless blood in the urine.", intro:"Visible blood in the urine should be assessed even if it happens only once. Many bladder tumours are found early and can be treated through the urethra.", points:["Painless visible blood in the urine","Irritative urinary symptoms in some people","Clots or difficulty passing urine","Smoking is an important risk factor"], sections:[{title:"Understanding bladder cancer",text:"Most tumours start in the lining of the bladder. Early detection allows treatment before the disease invades deeper muscle."},{title:"Evaluation",text:"Urine tests, imaging and cystoscopy are used to look at the bladder lining and check the rest of the urinary tract when indicated."},{title:"Treatment",text:"Many non-muscle-invasive tumours are removed endoscopically. Further treatment and surveillance depend on the pathology and risk of recurrence."}] },
   { slug:"upper-tract-urothelial-cancer", title:"Upper Tract Urothelial Cancer", shortTitle:"Upper Tract Cancer", description:"A less common cancer of the lining of the kidney collecting system or ureter.", intro:"This cancer arises from the same type of lining as most bladder tumours. Blood in the urine or obstruction may be the first clue.", points:["Visible or microscopic blood in the urine","Flank pain if drainage is blocked","May be linked with bladder tumours","Smoking increases risk"], sections:[{title:"Understanding upper tract cancer",text:"The lining of the renal pelvis and ureter can develop urothelial cancer. It is less common than bladder cancer but is investigated in a similar way."},{title:"Evaluation",text:"Imaging, urine cytology and endoscopy of the upper tract help confirm the diagnosis and look for disease elsewhere in the urinary lining."},{title:"Treatment",text:"Treatment depends on grade, stage and kidney function and may include endoscopic management or removal of the kidney and ureter."}] },
+  { slug:"adrenal-cancer", title:"Adrenal Cancer", shortTitle:"Adrenal Cancer", description:"A rare tumour of the adrenal gland, which sits on top of the kidney and produces hormones.", intro:"Most adrenal masses found on a scan are not cancer. Assessment looks at size, appearance and whether the gland is making extra hormones before deciding on observation or surgery.", points:["Often found on a scan done for another reason","Flank or abdominal discomfort in some people","Hormone changes such as blood-pressure swings in some cases","A mass may be felt only when large"], sections:[{title:"Understanding adrenal cancer",text:"The adrenal glands sit above each kidney. A mass can be a benign adenoma, a functioning tumour or, less often, adrenal cancer. Size, growth and hormone activity help distinguish these."},{title:"Evaluation",text:"Dedicated imaging characterises the mass. Blood and urine tests check hormone production, and endocrinology input is often needed before any operation."},{title:"Treatment",text:"Suspicious or functioning masses may be removed, often by laparoscopic adrenal surgery. Larger or invasive tumours may need open surgery, with follow-up of hormones and imaging."}] },
+  { slug:"testicular-cancer", title:"Testicular Cancer", shortTitle:"Testicular Cancer", description:"A cancer of the testis that is most often found as a painless lump in younger men and is highly treatable when assessed promptly.", intro:"A new lump, swelling or change in the testis should be examined rather than watched at home. Ultrasound and blood tumour markers usually give a clear next step.", points:["A painless lump or swelling in the testis","A feeling of heaviness in the scrotum","Ache in the lower abdomen or groin in some men","Most common in younger adult men"], sections:[{title:"Understanding testicular cancer",text:"Testicular cancers often grow as a firm mass within the testis. Many are found early, and cure rates are high with timely surgery and, when needed, further treatment."},{title:"Evaluation",text:"Examination, scrotal ultrasound and blood tumour markers (AFP, hCG and LDH) are the usual first tests. Staging scans follow if cancer is confirmed or strongly suspected."},{title:"Treatment",text:"The first treatment is usually removal of the affected testis through the groin (inguinal orchiectomy). Further care — surveillance, chemotherapy or radiotherapy — depends on the pathology and stage."}] },
   { slug:"male-infertility", title:"Male Infertility", shortTitle:"Male Infertility", description:"Difficulty contributing to conception, often identified after a couple has been trying for a year.", intro:"Male factors are common in delayed conception. Evaluation looks at semen quality, hormones, examination findings and any reversible causes.", points:["Difficulty conceiving after regular attempts","Abnormal semen analysis","Varicocele or hormonal change in some men","Previous infection, surgery or undescended testis"], sections:[{title:"Understanding male infertility",text:"Sperm production, transport and function can all affect fertility. A structured assessment avoids unnecessary delay for the couple."},{title:"Evaluation",text:"Semen analysis, examination and selected blood tests are the usual first steps. Imaging or genetic tests are added when the findings suggest them."},{title:"Treatment",text:"Care may include lifestyle measures, treatment of a varicocele, medical therapy or sperm retrieval as part of assisted conception."}] },
   { slug:"erectile-dysfunction", title:"Erectile Dysfunction", shortTitle:"Erectile Dysfunction", description:"Ongoing difficulty getting or keeping an erection sufficient for sexual activity.", intro:"Erectile difficulty is common and often treatable. It can be related to blood vessels, nerves, hormones, medicines or psychological factors.", points:["Difficulty achieving an erection","Difficulty maintaining an erection","Reduced confidence or relationship strain","May occur with diabetes or heart disease"], sections:[{title:"Understanding erectile dysfunction",text:"Erection depends on blood flow, nerve signalling and hormonal balance. Vascular and metabolic conditions are frequent contributors."},{title:"Evaluation",text:"A medical and sexual history, medicines review and targeted tests help identify treatable causes and cardiovascular risk."},{title:"Treatment",text:"Treatment may include lifestyle change, oral medicines, devices or other specialist options after discussion of benefits and risks."}] },
   { slug:"varicocele", title:"Varicocele", shortTitle:"Varicocele", description:"Enlarged veins in the scrotum, usually on the left, that may cause a dull ache or affect sperm quality.", intro:"A varicocele is similar to a varicose vein. Many men have no symptoms, but some notice discomfort or reduced fertility.", points:["Dull scrotal ache, often after standing","A feeling of fullness in the scrotum","Usually more noticeable on the left","May be linked with reduced sperm quality"], sections:[{title:"Understanding varicocele",text:"Dilated veins around the testis can raise local temperature and affect comfort or semen parameters. Not every varicocele needs treatment."},{title:"Evaluation",text:"Examination is often enough. Ultrasound confirms the finding, and semen analysis is useful when fertility is a concern."},{title:"Treatment",text:"Observation is appropriate when symptoms are mild. Repair may be considered for pain that persists or for selected fertility problems."}] },
@@ -69,6 +71,8 @@ export const conditionGroups = [
       "kidney-cancer",
       "bladder-cancer",
       "upper-tract-urothelial-cancer",
+      "adrenal-cancer",
+      "testicular-cancer",
     ],
   },
   {
@@ -81,6 +85,7 @@ export const conditionGroups = [
       "varicocele",
       "hematospermia",
       "male-luts",
+      "testicular-cancer",
     ],
   },
   {
@@ -108,6 +113,48 @@ export const conditionGroups = [
 
 export function getConditionImage(slug: string, fallback = "/assets/conditions/clinic-a.jpg") {
   return slug ? `/assets/conditions/${slug}.jpg` : fallback;
+}
+
+const diagramImagePaths = new Set([
+  "/assets/conditions/kidney-stones.jpg",
+  "/assets/conditions/ureteric-stones.jpg",
+  "/assets/conditions/recurrent-urinary-tract-infection.jpg",
+  "/assets/conditions/hematuria.jpg",
+  "/assets/conditions/hydronephrosis.jpg",
+  "/assets/conditions/urinary-frequency.jpg",
+  "/assets/conditions/urinary-urgency.jpg",
+  "/assets/conditions/nocturia.jpg",
+  "/assets/conditions/bph.jpg",
+  "/assets/conditions/luts.jpg",
+  "/assets/conditions/prostatitis.jpg",
+  "/assets/conditions/prostate-cancer.jpg",
+  "/assets/conditions/kidney-cancer.jpg",
+  "/assets/conditions/bladder-cancer.jpg",
+  "/assets/conditions/upper-tract-urothelial-cancer.jpg",
+  "/assets/conditions/adrenal-cancer.jpg",
+  "/assets/conditions/testicular-cancer.jpg",
+  "/assets/conditions/male-infertility.jpg",
+  "/assets/conditions/erectile-dysfunction.jpg",
+  "/assets/conditions/varicocele.jpg",
+  "/assets/conditions/hematospermia.jpg",
+  "/assets/conditions/male-luts.jpg",
+  "/assets/conditions/urethral-stricture.jpg",
+  "/assets/conditions/meatal-stenosis.jpg",
+  "/assets/conditions/recurrent-urethral-stricture.jpg",
+  "/assets/conditions/vesicoureteral-reflux.jpg",
+  "/assets/conditions/posterior-urethral-valves.jpg",
+  "/assets/conditions/undescended-testis.jpg",
+  "/assets/conditions/pediatric-hydronephrosis.jpg",
+]);
+
+export function isConditionDiagram(src: string) {
+  return diagramImagePaths.has(src);
+}
+
+export function conditionImageClassName(src: string) {
+  return isConditionDiagram(src)
+    ? "h-full w-full object-contain bg-white"
+    : "h-full w-full object-cover";
 }
 
 export const conditionBySlug: Record<string, Condition> = Object.fromEntries(conditions.map((condition) => [condition.slug, condition]));

@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SectionHeading from "./SectionHeading";
-import { featuredTreatments, getTreatmentImage, treatmentBySlug } from "../data/treatments";
+import { featuredTreatments, getTreatmentImage, isTreatmentDiagram, treatmentBySlug, treatmentImageClassName } from "../data/treatments";
 
 export default function TreatmentsSection() {
   return (
@@ -27,6 +27,7 @@ export default function TreatmentsSection() {
           {featuredTreatments.map((slug, index) => {
             const treatment = treatmentBySlug[slug];
             if (!treatment) return null;
+            const imageSrc = getTreatmentImage(treatment.slug);
 
             return (
               <Link
@@ -34,13 +35,13 @@ export default function TreatmentsSection() {
                 to={`/treatments/${treatment.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
               >
-                <div className="relative h-44 overflow-hidden">
+                <div className="relative h-44 overflow-hidden bg-slate-50">
                   <img
-                    src={getTreatmentImage(treatment.slug)}
+                    src={imageSrc}
                     alt={treatment.title}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className={`${treatmentImageClassName(imageSrc)} transition-transform duration-700 group-hover:scale-105`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/45 via-transparent to-transparent" />
+                  <div className={`absolute inset-0 ${isTreatmentDiagram(imageSrc) ? "bg-gradient-to-t from-slate-900/15 via-transparent to-transparent" : "bg-gradient-to-t from-slate-900/45 via-transparent to-transparent"}`} />
                   <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold text-slate-500">
                     0{index + 1}
                   </span>

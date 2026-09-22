@@ -6,7 +6,7 @@ import { conditionBySlug, conditionGroups } from "../data/conditions";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const slugs = conditionGroups.flatMap((group) => group.slugs);
+const slugs = [...new Set(conditionGroups.flatMap((group) => group.slugs))];
 
 const settings = {
   dots: false,

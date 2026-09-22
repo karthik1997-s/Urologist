@@ -55,7 +55,16 @@ export default function Hero() {
     duration: 0.8,
     delay: 0.45,
   }} className="mt-7 max-w-2xl text-lg leading-8 text-slate-600">
-             Evaluation and management of urological conditions at Sri Usha Medical Centre, Karaikudi.
+             Evaluation and management of urological conditions at{" "}
+            <a
+              href="https://sriushamedicalcentre.com"
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-teal-700 underline decoration-teal-200 underline-offset-[5px] transition hover:text-teal-800 hover:decoration-teal-500"
+            >
+              Sri Usha Medical Centre
+            </a>
+            , Karaikudi.
           </motion.p>
           <div className="mt-9 flex flex-wrap gap-3">
            <motion.a

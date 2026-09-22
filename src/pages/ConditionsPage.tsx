@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
 import { IMAGES } from "../Utills/ImageConstant";
-import { conditionBySlug, conditionGroups, getConditionImage } from "../data/conditions";
+import { conditionBySlug, conditionGroups, conditionImageClassName, getConditionImage, isConditionDiagram } from "../data/conditions";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -101,6 +101,7 @@ export default function ConditionsPage() {
                 {group.slugs.map((slug, index) => {
                   const condition = conditionBySlug[slug];
                   if (!condition) return null;
+                  const imageSrc = getConditionImage(condition.slug, group.image);
 
                   return (
                     <motion.article
@@ -118,13 +119,13 @@ export default function ConditionsPage() {
                         to={`/conditions/${condition.slug}`}
                         className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl"
                       >
-                        <div className="relative h-48 overflow-hidden">
+                        <div className="relative h-48 overflow-hidden bg-white">
                           <img
-                            src={getConditionImage(condition.slug, group.image)}
+                            src={imageSrc}
                             alt={condition.title}
-                            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            className={`${conditionImageClassName(imageSrc)} transition-transform duration-700 group-hover:scale-105`}
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-slate-900/10 to-transparent" />
+                          <div className={`absolute inset-0 ${isConditionDiagram(imageSrc) ? "bg-gradient-to-t from-slate-900/10 via-transparent to-transparent" : "bg-gradient-to-t from-slate-900/50 via-slate-900/10 to-transparent"}`} />
                           <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-teal-700">
                             {group.number}
                           </span>

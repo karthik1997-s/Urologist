@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
-import { conditionBySlug, getConditionImage } from "../data/conditions";
+import { conditionBySlug, conditionImageClassName, getConditionImage, isConditionDiagram } from "../data/conditions";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function ConditionPage() {
   const { slug } = useParams();
   const condition = slug ? conditionBySlug[slug] : undefined;
+  const imageSrc = condition ? getConditionImage(condition.slug) : "";
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -68,13 +69,13 @@ export default function ConditionPage() {
               </div>
 
               <motion.div initial={{ opacity: 0, x: 45, scale: 0.97 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.85, delay: 0.2, ease }} className="overflow-hidden rounded-[28px] border border-white/80 bg-white shadow-xl shadow-teal-900/5">
-                <div className="relative h-56 overflow-hidden sm:h-64">
+                <div className="relative h-56 overflow-hidden bg-white sm:h-64">
                   <img
-                    src={getConditionImage(condition.slug)}
+                    src={imageSrc}
                     alt={condition.title}
-                    className="h-full w-full object-cover"
+                    className={conditionImageClassName(imageSrc)}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+                  <div className={`absolute inset-0 ${isConditionDiagram(imageSrc) ? "bg-gradient-to-t from-slate-900/10 via-transparent to-transparent" : "bg-gradient-to-t from-slate-900/40 to-transparent"}`} />
                 </div>
                 <div className="p-7">
                   <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">At a glance</p>

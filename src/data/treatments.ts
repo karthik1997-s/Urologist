@@ -121,6 +121,16 @@ export const treatments: Treatment[] = [
     "Not every prostate cancer needs immediate treatment. Risk group and life expectancy shape the plan.",
     ["PSA, MRI and biopsy for diagnosis", "Active surveillance for selected low-risk disease", "Surgery or radiotherapy for localised cancer", "Shared decision-making"],
     [{ title: "When treatment is considered", text: "Higher-grade or higher-volume cancer, or a man who prefers treatment to surveillance, leads to a discussion of curative options." }, { title: "What evaluation involves", text: "PSA trends, MRI and targeted or systematic biopsy estimate how significant the cancer is before a choice is made." }, { title: "Follow-up", text: "PSA after treatment, and imaging if needed, watch for recurrence. Side effects on continence and sexual function are managed actively." }]),
+  t("adrenal-cancer-surgery", "Adrenal Cancer Surgery", "Adrenal Cancer Surgery",
+    "Surgery to remove a suspicious or cancerous adrenal gland, often by a keyhole approach after hormone tests are complete.",
+    "The aim is to remove the adrenal mass completely while protecting the kidney and nearby vessels, with endocrinology support around the operation.",
+    ["Hormone work-up before surgery", "Laparoscopic removal when anatomy allows", "Open surgery for larger or invasive tumours", "Blood pressure and steroid cover after"],
+    [{ title: "When it is considered", text: "A mass that looks concerning on imaging, is growing, or is producing excess hormones may need adrenalectomy rather than observation." }, { title: "What the procedure involves", text: "The adrenal gland is dissected from the kidney and vessels. Smaller tumours are often removed through small ports; larger cancers may need an open incision." }, { title: "Recovery and follow-up", text: "Hormone levels, blood pressure and any steroid requirement are reviewed. Pathology and imaging decide how closely the case is followed afterwards." }]),
+  t("testicular-cancer-surgery", "Testicular Cancer Surgery", "Testicular Cancer Surgery",
+    "The affected testis is removed through a groin incision (inguinal orchiectomy) so the cancer can be treated and fully examined.",
+    "This is usually the first treatment after ultrasound and tumour markers. Further care depends on the pathology report and staging scans.",
+    ["Groin (inguinal) approach, not through the scrotum", "Tumour markers before surgery", "High cure rates when found early", "Surveillance or further therapy after pathology"],
+    [{ title: "When it is considered", text: "A solid testicular mass on ultrasound, especially with raised tumour markers, is treated by prompt inguinal orchiectomy unless there is a reason to start chemotherapy first." }, { title: "What the procedure involves", text: "Through a groin incision the spermatic cord is controlled and the testis is removed. A prosthesis can be discussed. Tissue is sent for pathology." }, { title: "Recovery and follow-up", text: "Most men go home the same day or next. Staging, markers and the pathology type decide surveillance, chemotherapy or radiotherapy." }]),
   t("male-infertility-evaluation", "Evaluation of Male Infertility", "Fertility Evaluation",
     "A structured assessment — history, examination, semen analysis and selected hormone tests — looks for treatable causes.",
     "Male factors are common. Finding them early can change the couple's next step, including assisted conception.",
@@ -142,13 +152,13 @@ export const treatmentGroups = [
   {
     number: "01",
     title: "Stone Surgery",
-    image: "/assets/conditions/kidney.jpg",
+    image: "/assets/conditions/kidney-stones.jpg",
     slugs: ["rirs", "ursl", "pcnl", "eswl", "dj-stenting"],
   },
   {
     number: "02",
     title: "Prostate Procedures",
-    image: "/assets/conditions/prostate.jpg",
+    image: "/assets/conditions/bph.jpg",
     slugs: ["turp", "holep", "medical-bph-treatment"],
   },
   {
@@ -160,13 +170,13 @@ export const treatmentGroups = [
   {
     number: "04",
     title: "Bladder Procedures",
-    image: "/assets/conditions/clinic-a.jpg",
+    image: "/assets/conditions/bladder-cancer.jpg",
     slugs: ["cystoscopy", "turbt", "intravesical-therapy"],
   },
   {
     number: "05",
     title: "Laparoscopic Urology",
-    image: "/assets/conditions/oncology.jpg",
+    image: "/assets/conditions/reconstructive.jpg",
     slugs: [
       "laparoscopic-nephrectomy",
       "laparoscopic-adrenal-surgery",
@@ -176,17 +186,19 @@ export const treatmentGroups = [
   {
     number: "06",
     title: "Urological Oncology",
-    image: "/assets/conditions/pediatric.jpg",
+    image: "/assets/conditions/prostate-cancer.jpg",
     slugs: [
       "kidney-cancer-surgery",
       "bladder-cancer-surgery",
       "prostate-cancer-treatment",
+      "adrenal-cancer-surgery",
+      "testicular-cancer-surgery",
     ],
   },
   {
     number: "07",
     title: "Male Infertility",
-    image: "/assets/conditions/male.jpg",
+    image: "/assets/conditions/male-infertility.jpg",
     slugs: [
       "male-infertility-evaluation",
       "varicocele-management",
@@ -195,8 +207,75 @@ export const treatmentGroups = [
   },
 ];
 
+const treatmentImages: Record<string, string> = {
+  rirs: "/assets/treatments/rirs.jpg",
+  ursl: "/assets/treatments/ursl.jpg",
+  pcnl: "/assets/treatments/pcnl.jpg",
+  eswl: "/assets/treatments/eswl.jpg",
+  "dj-stenting": "/assets/treatments/dj-stent.jpg",
+  turp: "/assets/treatments/turp.jpg",
+  holep: "/assets/treatments/holep.jpg",
+  "medical-bph-treatment": "/assets/treatments/medical-bph.jpg",
+  "urethral-dilatation": "/assets/treatments/urethral-dilatation.jpg",
+  dviu: "/assets/treatments/dviu.jpg",
+  urethroplasty: "/assets/treatments/urethroplasty.jpg",
+  cystoscopy: "/assets/treatments/cystoscopy.jpg",
+  turbt: "/assets/treatments/turbt.jpg",
+  "intravesical-therapy": "/assets/treatments/intravesical.jpg",
+  "laparoscopic-nephrectomy": "/assets/treatments/lap-nephrectomy.jpg",
+  "laparoscopic-adrenal-surgery": "/assets/treatments/lap-adrenal.jpg",
+  "other-laparoscopic-procedures": "/assets/treatments/lap-other.jpg",
+  "kidney-cancer-surgery": "/assets/treatments/kidney-cancer-surgery.jpg",
+  "bladder-cancer-surgery": "/assets/treatments/bladder-cancer-surgery.jpg",
+  "prostate-cancer-treatment": "/assets/conditions/prostate-cancer.jpg",
+  "adrenal-cancer-surgery": "/assets/conditions/adrenal-cancer.jpg",
+  "testicular-cancer-surgery": "/assets/conditions/testicular-cancer.jpg",
+  "male-infertility-evaluation": "/assets/treatments/fertility-eval.jpg",
+  "varicocele-management": "/assets/treatments/varicocele.jpg",
+  "surgical-sperm-retrieval": "/assets/treatments/sperm-retrieval.jpg",
+};
+
+const diagramImagePaths = new Set([
+  "/assets/conditions/prostate-cancer.jpg",
+  "/assets/conditions/adrenal-cancer.jpg",
+  "/assets/conditions/testicular-cancer.jpg",
+  "/assets/treatments/dj-stent.jpg",
+  "/assets/treatments/rirs.jpg",
+  "/assets/treatments/ursl.jpg",
+  "/assets/treatments/pcnl.jpg",
+  "/assets/treatments/eswl.jpg",
+  "/assets/treatments/turp.jpg",
+  "/assets/treatments/holep.jpg",
+  "/assets/treatments/medical-bph.jpg",
+  "/assets/treatments/urethral-dilatation.jpg",
+  "/assets/treatments/dviu.jpg",
+  "/assets/treatments/urethroplasty.jpg",
+  "/assets/treatments/cystoscopy.jpg",
+  "/assets/treatments/turbt.jpg",
+  "/assets/treatments/intravesical.jpg",
+  "/assets/treatments/lap-nephrectomy.jpg",
+  "/assets/treatments/lap-adrenal.jpg",
+  "/assets/treatments/lap-other.jpg",
+  "/assets/treatments/kidney-cancer-surgery.jpg",
+  "/assets/treatments/bladder-cancer-surgery.jpg",
+  "/assets/treatments/fertility-eval.jpg",
+  "/assets/treatments/varicocele.jpg",
+  "/assets/treatments/sperm-retrieval.jpg",
+]);
+
 export function getTreatmentImage(slug: string, fallback = "/assets/conditions/clinic-a.jpg") {
-  return slug ? `/assets/treatments/${slug}.jpg` : fallback;
+  if (!slug) return fallback;
+  return treatmentImages[slug] ?? `/assets/treatments/${slug}.jpg`;
+}
+
+export function isTreatmentDiagram(src: string) {
+  return diagramImagePaths.has(src);
+}
+
+export function treatmentImageClassName(src: string) {
+  return isTreatmentDiagram(src)
+    ? "h-full w-full object-contain bg-white"
+    : "h-full w-full object-cover";
 }
 
 export const featuredTreatments = [
