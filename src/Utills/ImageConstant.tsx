@@ -1,5 +1,4 @@
-import DoctorImage from "../../public/assets/images/Doctor_image.jpeg";
-
+/** Public URLs — files live in `public/assets/images/` (works on Netlify/Linux builds). */
 export const IMAGES = {
-DoctorImage
-};
+  DoctorImage: "/assets/images/Doctor_image.jpeg",
+} as const;
