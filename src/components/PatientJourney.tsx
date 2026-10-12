@@ -531,3 +531,123 @@ export default function PatientJourney() {
     </section>
   );
 }
+<<<<<<< HEAD
+=======
+
+function Scene({ id }: { id: SceneId }) {
+  if (id === "arrive") {
+    return (
+      <div className="relative h-[440px] w-full">
+        <NoteCard
+          className="absolute left-0 top-1 w-[11.5rem] sm:w-48"
+          title="The hospital"
+          description="He walks into Sri Usha Medical Centre and looks for the urology clinic."
+          lines={["Karaikudi", "Outpatient desk", "Urology wing"]}
+          delay={0.05}
+        />
+        <NoteCard
+          className="absolute bottom-1 left-0 w-[11.5rem] sm:w-48"
+          title="Check-in"
+          description="The desk takes his name and marks this as a first visit."
+          lines={["Name given", "First visit", "Called in next"]}
+          delay={0.15}
+        />
+        <NoteCard
+          className="absolute bottom-1 right-0 w-[11.5rem] sm:w-52"
+          title="The room"
+          description="He waits a short while, then sits down for the consultation."
+          lines={["Waiting area", "Consultation room", "One doctor"]}
+          delay={0.25}
+        />
+      </div>
+    );
+  }
+
+  if (id === "office") {
+    return (
+      <div className="flex h-[440px] w-full items-end justify-end pr-2">
+        <Actor role="patient" compact />
+      </div>
+    );
+  }
+
+  if (id === "notes") {
+    return (
+      <div className="flex w-full items-end justify-end pr-2">
+        <NoteCard
+          title="Clinic notes"
+          description="What he answers when the doctor asks about the change."
+          lines={["A few weeks", "Weaker stream", "Waking at night", "No blood seen"]}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-10 flex items-center gap-5 rounded-[36px] border border-white/80 bg-white/85 px-5 py-4 shadow-card backdrop-blur-md">
+      <img
+        src={IMAGES.DoctorImage}
+        alt=""
+        className="h-28 w-28 shrink-0 rounded-full object-cover object-[center_18%] ring-4 ring-[#d7ebe4]"
+      />
+      <div>
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#3d6b5a]">Consultant urologist</p>
+        <p className="mt-1 font-display text-2xl font-semibold leading-tight text-ink">Dr. Suryaram Aravind</p>
+        <p className="mt-1 text-sm text-slate-500">MBBS, MS, MCh · Karaikudi</p>
+      </div>
+    </div>
+  );
+}
+
+function NoteCard({
+  title,
+  lines,
+  description,
+  className = "",
+  delay = 0,
+}: {
+  title: string;
+  lines: string[];
+  description?: string;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      initial={{ rotate: -6, y: 12, opacity: 0 }}
+      animate={{ rotate: 0, y: 0, opacity: 1 }}
+      transition={{ delay }}
+      className={`overflow-hidden rounded-[32px] bg-white p-4 shadow-card ${className || "mb-8 w-52"}`}
+    >
+      <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#3d6b5a]">{title}</p>
+      {description && <p className="mt-2 text-xs leading-5 text-slate-500">{description}</p>}
+      <ul className="mt-3 space-y-2">
+        {lines.map((line, index) => (
+          <motion.li
+            key={line}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: delay + 0.25 + index * 0.35 }}
+            className="border-b border-slate-100 pb-1 text-sm text-ink"
+          >
+            {line}
+          </motion.li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+}
+
+function Actor({ role, compact = false }: { role: "doctor" | "patient"; compact?: boolean }) {
+  return (
+    <motion.img
+      src={role === "doctor" ? "/assets/images/doctor-flat.png" : "/assets/images/patient-flat.png"}
+      alt=""
+      aria-hidden
+      className={`relative w-auto object-contain drop-shadow-[0_16px_18px_rgba(61,80,60,.18)] ${compact ? "h-64 sm:h-72" : "h-80 sm:h-[22rem]"}`}
+      animate={{ y: [0, -8, 0] }}
+      transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+    />
+  );
+}
+>>>>>>> cc39d9c0cfdc08b0fee54495dd548732be8379ce
