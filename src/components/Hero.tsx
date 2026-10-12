@@ -14,6 +14,8 @@ export default function Hero() {
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white/80 px-4 py-2 text-xs font-semibold text-teal-700">
               <Sparkles size={14} /> Urologist · Karaikudi
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-teal-700">
+              <Sparkles size={14} /> Consultant UROLOGIST & ANDROLOGIST — Karaikudi
             </div>
             <motion.h1
               initial={{ opacity: 0, y: 45 }}
@@ -22,7 +24,7 @@ export default function Hero() {
               transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-3xl font-display text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-ink md:text-7xl"
             >
-              Urology care you can <span className="text-teal-700">understand</span>.
+              Urological care with <span className="text-teal-700">evidence-based</span> patient education.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 25 }}
@@ -31,7 +33,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.45 }}
               className="mt-7 font-display text-xl font-medium tracking-tight text-steel sm:text-2xl"
             >
-              Dr. Suryaram Aravind — specialist urologist
+              Dr. Suryaram Aravind — MBBS, MS (General Surgery), MCh (Urology)
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 25 }}
@@ -40,7 +42,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.45 }}
               className="mt-7 max-w-2xl text-lg leading-8 text-slate-600"
             >
-              Diagnosis and treatment for kidney, bladder, and men&apos;s health at{" "}
+              Evaluation and management of urological conditions at{" "}
               <a
                 href="https://sriushamedicalcentre.com"
                 target="_blank"

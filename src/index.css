@@ -247,11 +247,6 @@ body { margin: 0; background: #fbfcfa; color: #12312f; font-family: Inter, sans-
   perspective: 1400px;
 }
 
-.hospital3d-scene {
-  perspective: 1500px;
-  transform-style: preserve-3d;
-}
-
 @keyframes heroKenburns {
   from { transform: scale(1); }
   to { transform: scale(1.08); }
