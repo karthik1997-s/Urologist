@@ -25,9 +25,6 @@ export default function Hero() {
               className="max-w-3xl font-display text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-ink md:text-7xl"
             >
               Urological care with <span className="text-teal-700">evidence-based</span> patient education.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.6 }}
               transition={{ duration: 0.8, delay: 0.45 }}
