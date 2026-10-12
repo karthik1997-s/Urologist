@@ -68,6 +68,10 @@ const memberships = [
     abbr: "UAA",
     name: "Urological Association of Asia",
   },
+  {
+    abbr: "EAU",
+    name: "European Association of Urology",
+  },
 ];
 const education = [
   {
@@ -645,7 +649,7 @@ export default function AboutPage() {
               </p>
             </motion.div>
 
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
               {memberships.map((membership, index) => (
                 <motion.article
                   key={membership.abbr}
