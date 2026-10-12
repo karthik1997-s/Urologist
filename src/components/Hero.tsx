@@ -1,7 +1,43 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
+import type { Transition } from "motion/react";
 import { IMAGES } from "../Utills/ImageConstant";
 import PatientJourney from "./PatientJourney";
+
+const h1Transition: Transition = {
+  duration: 0.9,
+  delay: 0.2,
+  ease: [0.22, 1, 0.36, 1],
+};
+
+const fadeUp = (y: number, duration: number, delay: number) => ({
+  initial: { opacity: 0, y },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.6 },
+  transition: { duration, delay } as Transition,
+});
+
+const buttonMotion = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.7, delay: 0.65 } as Transition,
+  whileHover: { y: -3, scale: 1.02 },
+  whileTap: { scale: 0.97 },
+};
+
+const credentials = [
+  { title: "MCh (Urology)", caption: "Specialist qualification" },
+  { title: "Sri Usha Medical Centre", caption: "Hospital affiliation" },
+  { title: "Adult & Pediatric Urology", caption: "Clinical practice" },
+];
+
+const maskStyle = {
+  maskImage:
+    "radial-gradient(ellipse 52% 62% at 50% 36%, #000 46%, transparent 98%)",
+  WebkitMaskImage:
+    "radial-gradient(ellipse 52% 62% at 50% 36%, #000 46%, transparent 98%)",
+};
 
 export default function Hero() {
   return (
@@ -10,34 +46,33 @@ export default function Hero() {
 
       <section className="relative">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_20%,rgba(175,233,223,.55),transparent_34%),linear-gradient(180deg,#f4fbf9_0%,#fbfcfa_70%)]" />
+
         <div className="container-wide grid min-h-[680px] items-center gap-14 py-20 lg:grid-cols-[1.05fr_.95fr]">
+          {/* Left column */}
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white/80 px-4 py-2 text-xs font-semibold text-teal-700">
               <Sparkles size={14} /> Urologist · Karaikudi
             </div>
+
             <motion.h1
               initial={{ opacity: 0, y: 45 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={h1Transition}
               className="max-w-3xl font-display text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-ink md:text-7xl"
             >
               Urology care you can <span className="text-teal-700">understand</span>.
             </motion.h1>
+
             <motion.p
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.8, delay: 0.45 }}
+              {...fadeUp(25, 0.8, 0.45)}
               className="mt-7 font-display text-xl font-medium tracking-tight text-steel sm:text-2xl"
             >
               Dr. Suryaram Aravind — specialist urologist
             </motion.p>
+
             <motion.p
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.8, delay: 0.45 }}
+              {...fadeUp(25, 0.8, 0.45)}
               className="mt-7 max-w-2xl text-lg leading-8 text-slate-600"
             >
               Diagnosis and treatment for kidney, bladder, and men&apos;s health at{" "}
@@ -51,47 +86,47 @@ export default function Hero() {
               </a>
               , Karaikudi.
             </motion.p>
+
             <div className="mt-9 flex flex-wrap gap-3">
               <motion.a
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.65 }}
-                whileHover={{ y: -3, scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
+                {...buttonMotion}
                 href="#appointment"
                 className="group inline-flex items-center gap-2 rounded-full bg-teal-700 px-6 py-3.5 font-semibold text-white shadow-soft hover:bg-teal-800"
               >
-                Book an Appointment <ArrowRight size={17} className="transition group-hover:translate-x-1" />
+                Book an Appointment
+                <ArrowRight
+                  size={17}
+                  className="transition group-hover:translate-x-1"
+                />
               </motion.a>
+
               <motion.a
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.65 }}
-                whileHover={{ y: -3, scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
+                {...buttonMotion}
                 href="/conditions"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 font-semibold text-ink hover:border-teal-400 hover:text-teal-700"
               >
                 Explore Urology Conditions
               </motion.a>
             </div>
+
             <div className="mt-12 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
-              {["MCh (Urology)", "Sri Usha Medical Centre", "Adult & Pediatric Urology"].map((item, i) => (
-                <div key={item} className="border-l-2 border-teal-300 pl-4">
-                  <p className="text-sm font-semibold text-ink">{item}</p>
-                  <p className="mt-1 text-xs text-slate-500">{["Specialist qualification", "Hospital affiliation", "Clinical practice"][i]}</p>
+              {credentials.map((item) => (
+                <div key={item.title} className="border-l-2 border-teal-300 pl-4">
+                  <p className="text-sm font-semibold text-ink">{item.title}</p>
+                  <p className="mt-1 text-xs text-slate-500">{item.caption}</p>
                 </div>
               ))}
             </div>
           </div>
 
+          {/* Right column */}
           <div className="relative mx-auto w-full max-w-[510px]">
             <div className="absolute -inset-5 rounded-[42px] bg-teal-100/60 blur-2xl" />
             <div className="relative overflow-hidden rounded-[36px] border border-white bg-white shadow-soft">
               <div className="relative h-[520px] bg-[linear-gradient(145deg,#9fe0d4,#edf8f6_55%,#c5efe6)]">
-                <div className="absolute left-7 top-7 z-20 rounded-full bg-white/90 px-4 py-2 text-xs font-bold text-teal-800 shadow-sm">MCh (Urology)</div>
+                <div className="absolute left-7 top-7 z-20 rounded-full bg-white/90 px-4 py-2 text-xs font-bold text-teal-800 shadow-sm">
+                  MCh (Urology)
+                </div>
                 <img
                   src={IMAGES.DoctorImage}
                   alt=""
@@ -101,7 +136,8 @@ export default function Hero() {
                 <img
                   src={IMAGES.DoctorImage}
                   alt="Dr. Suryaram Aravind"
-                  className="absolute inset-0 h-full w-full object-cover object-[center_12%] [mask-image:radial-gradient(ellipse_52%_62%_at_50%_36%,#000_46%,transparent_98%)] [-webkit-mask-image:radial-gradient(ellipse_52%_62%_at_50%_36%,#000_46%,transparent_98%)]"
+                  className="absolute inset-0 h-full w-full object-cover object-[center_12%]"
+                  style={maskStyle}
                 />
               </div>
             </div>
