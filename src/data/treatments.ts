@@ -212,12 +212,12 @@ const treatmentImages: Record<string, string> = {
   ursl: "/assets/treatments/ursl.jpg",
   pcnl: "/assets/treatments/pcnl.jpg",
   eswl: "/assets/treatments/eswl.jpg",
-  "dj-stenting": "/assets/treatments/dj-stent.jpg",
+  "dj-stenting": "/assets/treatments/dj-stent.webp",
   turp: "/assets/treatments/turp.jpg",
   holep: "/assets/treatments/holep.jpg",
   "medical-bph-treatment": "/assets/treatments/medical-bph.jpg",
   "urethral-dilatation": "/assets/treatments/urethral-dilatation.jpg",
-  dviu: "/assets/treatments/dviu.jpg",
+  dviu: "/assets/treatments/dviu.webp",
   urethroplasty: "/assets/treatments/urethroplasty.jpg",
   cystoscopy: "/assets/treatments/cystoscopy.jpg",
   turbt: "/assets/treatments/turbt.jpg",
@@ -232,14 +232,14 @@ const treatmentImages: Record<string, string> = {
   "testicular-cancer-surgery": "/assets/conditions/testicular-cancer.jpg",
   "male-infertility-evaluation": "/assets/treatments/fertility-eval.jpg",
   "varicocele-management": "/assets/treatments/varicocele.jpg",
-  "surgical-sperm-retrieval": "/assets/treatments/sperm-retrieval.jpg",
+  "surgical-sperm-retrieval": "/assets/treatments/sperm-retrieval.webp",
 };
 
 const diagramImagePaths = new Set([
   "/assets/conditions/prostate-cancer.jpg",
   "/assets/conditions/adrenal-cancer.jpg",
   "/assets/conditions/testicular-cancer.jpg",
-  "/assets/treatments/dj-stent.jpg",
+  "/assets/treatments/dj-stent.webp",
   "/assets/treatments/rirs.jpg",
   "/assets/treatments/ursl.jpg",
   "/assets/treatments/pcnl.jpg",
@@ -248,7 +248,7 @@ const diagramImagePaths = new Set([
   "/assets/treatments/holep.jpg",
   "/assets/treatments/medical-bph.jpg",
   "/assets/treatments/urethral-dilatation.jpg",
-  "/assets/treatments/dviu.jpg",
+  "/assets/treatments/dviu.webp",
   "/assets/treatments/urethroplasty.jpg",
   "/assets/treatments/cystoscopy.jpg",
   "/assets/treatments/turbt.jpg",
@@ -260,7 +260,7 @@ const diagramImagePaths = new Set([
   "/assets/treatments/bladder-cancer-surgery.jpg",
   "/assets/treatments/fertility-eval.jpg",
   "/assets/treatments/varicocele.jpg",
-  "/assets/treatments/sperm-retrieval.jpg",
+  "/assets/treatments/sperm-retrieval.webp",
 ]);
 
 export function getTreatmentImage(slug: string, fallback = "/assets/conditions/clinic-a.jpg") {
